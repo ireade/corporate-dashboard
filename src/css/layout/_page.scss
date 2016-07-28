@@ -53,6 +53,84 @@ $v-padd-mobile: 30px;
 	font-style: italic;
 }
 
+
+
+
+/* Body */
+
 .page-body {
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	
 	
 }
+
+
+.col-1 {
+	width: 100%;
+}
+
+.col-2 {
+	width: 48%;
+}
+.page-section {
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid $grey-2;
+	margin-bottom: 30px;
+	
+	@include screen(small) {
+		width: 100%;
+	}
+}
+
+
+
+.section-title,
+.section-body {
+	padding: 20px;
+}
+
+.section-title {
+	border-bottom: 1px solid $grey-2;
+	font-weight: 600;
+}
+
+
+
+
+/* Charts */
+
+.chart {
+	// /width: 100%;
+}
+
+
+
+/* Tables */
+
+table {
+	width: 100%;
+
+	thead {
+		background: $theme;
+		text-align: left;
+		font-weight: 600;
+		color: #fff;
+	}
+
+	td, th {
+		padding: 10px;
+	}
+
+	tbody tr:nth-child(odd) {
+		background: $grey-1;
+	}
+}
+
+
+
+

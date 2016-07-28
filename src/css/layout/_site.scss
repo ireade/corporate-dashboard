@@ -23,7 +23,7 @@ body {
 	width: 200px;
 	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.4);
 	z-index: 2;
-	text-align: center;
+	text-align: left;
 
 	.toggle-nav {
 		color: #fff;
@@ -36,7 +36,6 @@ $sidebar-padding: 15px;
 
 .site-header {
 	padding: 30px $sidebar-padding;
-	text-align: center;
 	font-weight: 700;
 }
 

@@ -1,48 +1,44 @@
-app.controller('GeospatialCtrl', ['UIFactory', '$http', function(UI, $http) {
-
+app.controller('GeospatialCtrl', ['UIFactory', 'EmployeesByLocation', function(UI, EmployeesByLocation) {
 
 	this.toggleNav = UI.toggleNav;
+	this.EmployeesByLocation = EmployeesByLocation;
 
+	/* Setup Data for chart */
 
-	console.log("geospatial")
+	var locations = [];
+	var employees = [];
 
-	$http.get('/tempData/employeesByLocation.json').then(function(response) {
-		console.log(response);
-
-		var locations = [];
-		var employees = [];
-
-		for ( var i = 0; i < response.data.length; i++ ) {
-			locations.push(response.data[i].location);
-			employees.push(response.data[i].employees);
-		}
-
-
-		var data = {
-			datasets: [{
-		        data: employees
-		    }],
-		    labels: locations
-		}
-
-
-		var ctx = $("#geospatialChart");
-
-		var geospatialChart = new Chart(ctx, {
-			data: data,
-		    type: 'polarArea',
-		    options: {
-		        elements: {
-		            arc: {
-		                borderColor: "#000000"
-		            }
-		        }
-		    }
-		});
-
-	
+	angular.forEach(EmployeesByLocation, function(value) {
+		locations.push(value.location);
+		employees.push(value.employees);
 	})
+	
+	var chartData = {
+		datasets: [{
+	        data: employees,
+	        backgroundColor: [
+	            "#FF6384", "#4BC0C0", "#FFCE56", "#f39c12", "#36A2EB", "#8e44ad", "#1abc9c", "#34495e", "#e67e22", "#c0392b"
+	        ]
+	    }],
+	    labels: locations
+	};
 
+	var ctx = $("#geospatialChart");
+
+	var geospatialChart = new Chart(ctx, {
+		data: chartData,
+	    type: 'polarArea',
+	    options: {
+	        elements: {
+	            arc: {
+	                borderColor: "#000000"
+	            }
+	        },
+	        legend: {
+	        	position: 'bottom'
+	        }
+	    }
+	});
 
 }]);
 

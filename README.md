@@ -24,8 +24,7 @@ You must develop a corporate dashboard application using a front-end MVC framewo
 - App is equally functional on mobile and desktop, using responsive design to ensure its displayed in a useable state.
 - Application makes use of a Front-End Framework (e.g. `Backbone`, `Angular`, `Ember`, et cetera) and properly separates data from the user interface.
 - Each dashboard uses external data files (data not stored directly within the application). At least one file must be a `comma-separated value` (`.csv`) and at least one must be `.json`.
-- 	
-Dashboard components must query the datafiles regularly, or receive `“push”` updates, and update their displays in “near” real-time without requiring a refresh of the application.
+- Dashboard components must query the datafiles regularly, or receive `“push”` updates, and update their displays in “near” real-time without requiring a refresh of the application.
 - App includes a build process (such as Grunt or Gulp). Assets are minimized and concatenated as appropriate.
 
 ## My Application

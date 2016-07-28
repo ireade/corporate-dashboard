@@ -11,6 +11,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/geospatial.html',
 			controller: 'GeospatialCtrl as dashboard',
 			resolve: {
+				EmployeesByLocation: function(CompanyDataService) {
+					return CompanyDataService.getEmployeesByLocation();
+				}
 			}
 		})
 		.state('keyMetrics', {
@@ -18,6 +21,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/key-metrics.html',
 			controller: 'KeyMetricsCtrl as dashboard',
 			resolve: {
+				Customers: function(CompanyDataService) {
+					return CompanyDataService.getCustomers();
+				}
 			}
 		})
 		.state('data', {
