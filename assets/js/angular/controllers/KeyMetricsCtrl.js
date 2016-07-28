@@ -1,7 +1,7 @@
-app.controller('KeyMetricsCtrl', [function() {
+app.controller('KeyMetricsCtrl', ['Customers', function(Customers) {
 
 
-	console.log("KeyMetricsCtrl")
+	console.log(Customers);
 
 
 }]);
