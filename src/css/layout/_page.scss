@@ -1,0 +1,58 @@
+/* -------------------------
+
+	 Page Layout
+
+------------------------- */
+
+$h-padd: 40px;
+$v-padd: 40px;
+
+$h-padd-mobile: 20px;
+$v-padd-mobile: 30px;
+
+.page-header,
+.page-body {
+	padding: $v-padd $h-padd;
+
+	@include screen(small) {
+		padding: $v-padd-mobile $h-padd-mobile;
+	}
+}
+
+
+.page-header {
+	background: #fff;
+	display: block;
+
+	.toggle-nav {
+		display: none;
+		@include screen(small) {
+			display: inline-block;
+		}
+	}
+}
+
+.toggle-nav {
+	font-size: 2.4rem;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.toggle-nav:focus {
+	color: $theme;
+	outline: none;
+}
+
+.page-title {
+	font-size: 2.8rem;
+	margin-bottom: 10px;
+}
+.page-subtitle {
+	font-size: 1.8rem;
+	font-style: italic;
+}
+
+.page-body {
+	
+}

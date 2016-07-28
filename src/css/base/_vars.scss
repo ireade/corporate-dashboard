@@ -1,0 +1,72 @@
+/* -------------------------
+
+	  Vars and Mixins
+
+------------------------- */
+
+
+// Colours
+
+$theme: rgb(134, 178, 229);
+
+$grey-1: rgb(245, 245, 245); // main bg colour
+$grey-2: rgb(230, 230, 230); // btn borders
+$grey-3: rgb(175, 175, 175); // sidebar inactive icons
+$grey-4: rgb(100, 100, 100); // sidebar bg, buttons bg
+
+$black: #000;
+$white: #fff;
+
+
+$success-light: rgba(46, 204, 64, 0.6); 
+$success-dark: #27ae60;
+
+$warning-light: rgba(255, 220, 0, 0.6);
+$warning-dark: #e67e22;
+
+$danger-light: rgba(231, 76, 60, 0.6);
+$danger-dark: #c0392b;
+
+
+
+// Font
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,700,900,900italic,700italic,400italic);
+
+$font: 'Source Sans Pro', sans-serif;
+
+
+
+
+
+
+// Media Queries
+
+$breakpoint: 600px;
+
+@mixin screen($size) {
+
+	@if $size == 'small' {
+		@media screen and (max-width: $breakpoint) {
+			@content;
+		}
+	}
+	@else if $size == 'large' {
+		@media screen and (min-width: $breakpoint) {
+			@content;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
