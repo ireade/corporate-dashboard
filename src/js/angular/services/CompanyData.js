@@ -60,9 +60,21 @@ app.factory('CompanyDataService', ['$http', '$q', function($http, $q) {
 
 		getCustomers: function() {
 			return $q(function(resolve, reject) {
-				$http.get('/tempData/customers.csv')
+				$http.get('/tempData/customersByWeek.json')
 				.then(function(response) {
-					convertCSVtoJSON(response.data, 2)
+					// convertCSVtoJSON(response.data, 2)
+					resolve(response.data);
+				})
+				.catch(function(err) {
+					console.log(err);
+				})
+			});
+		},
+
+		getIssues: function() {
+			return $q(function(resolve, reject) {
+				$http.get('/tempData/issues.json')
+				.then(function(response) {
 					resolve(response.data);
 				})
 				.catch(function(err) {

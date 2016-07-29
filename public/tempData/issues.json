@@ -1,0 +1,182 @@
+[
+  {
+    "submission_timestamp": "2016-01-01",
+    "closed_timestamp": "2016-01-16",
+    "status": "closed",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Sustainable heirloom authentic VHS mumblecore. Cardigan church-key blue bottle, franzen bitters shabby chic put a bird on it plaid mlkshk ugh whatever meditation fixie. Marfa deep v chambray brunch microdosing tacos, PBR&B 3 wolf moon."
+  },
+  {
+    "submission_timestamp": "2016-01-15",
+    "closed_timestamp": "2016-02-25",
+    "status": "closed",
+    "customer_name": "Jane Doe",
+    "customer_email": "jane@doe.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Yuccie butcher locavore retro bushwick polaroid gentrify leggings. VHS synth hoodie, semiotics disrupt pork belly pitchfork put a bird on it keytar blog marfa listicle slow-carb. Before they sold out aesthetic intelligentsia brunch thundercats pitchfork."
+  },
+  {
+    "submission_timestamp": "2016-01-31",
+    "closed_timestamp": "2016-02-25",
+    "status": "closed",
+    "customer_name": "John Appleseed",
+    "customer_email": "john@appleseed.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Kinfolk art party small batch jean shorts. Asymmetrical man braid fixie, swag hoodie street art cray. Fanny pack hella 3 wolf moon, cold-pressed pabst microdosing selfies kitsch mustache. Fashion axe hashtag beard salvia meditation franzen."
+  },
+  {
+    "submission_timestamp": "2016-02-25",
+    "closed_timestamp": "2016-02-25",
+    "status": "closed",
+    "customer_name": "Ire Aderinokun",
+    "customer_email": "ire@ireaderinokun.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Butcher organic tofu tacos, sustainable swag bushwick occupy scenester. Austin banjo knausgaard humblebrag, mixtape health goth leggings semiotics 90's lumbersexual biodiesel umami skateboard put a bird on it cold-pressed."
+  },
+  {
+    "submission_timestamp": "2016-02-25",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "employee_name": "John Smith",
+    "description": "Truffaut mixtape listicle +1 cardigan, messenger bag chambray neutra williamsburg ugh meditation fashion axe flannel single-origin coffee pabst. Roof party franzen celiac, brunch meditation readymade taxidermy humblebrag art party lomo umami locavore."
+  },
+  {
+    "submission_timestamp": "2016-03-01",
+    "closed_timestamp": "2016-04-11",
+    "status": "closed",
+    "customer_name": "Jane Doe",
+    "customer_email": "jane@doe.com",
+    "employee_name": "John Smith",
+    "description": "Etsy fingerstache DIY green juice cray. Kickstarter squid banjo etsy beard, quinoa art party retro jean shorts offal polaroid brunch plaid. Synth roof party migas brooklyn, cold-pressed post-ironic vegan brunch poutine YOLO. Bitters YOLO thundercats letterpress."
+  },
+  {
+    "submission_timestamp": "2016-03-02",
+    "closed_timestamp": "2016-04-13",
+    "status": "closed",
+    "customer_name": "John Appleseed",
+    "customer_email": "john@appleseed.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Chia brunch gluten-free hoodie chicharrones, disrupt small batch direct trade man bun etsy. Pour-over leggings keytar, bicycle rights try-hard pabst gluten-free cred tacos iPhone vegan PBR&B. Marfa kale chips lomo, shabby chic truffaut squid +1 synth blue bottle narwhal tattooed forage pinterest."
+  },
+  {
+    "submission_timestamp": "2016-03-12",
+    "closed_timestamp": "2016-04-14",
+    "status": "closed",
+    "customer_name": "Ire Aderinokun",
+    "customer_email": "ire@ireaderinokun.com",
+    "employee_name": "John Taxpayer",
+    "description": "Kogi meh hoodie fashion axe chia. Godard poutine gluten-free vegan hoodie mumblecore. Truffaut heirloom pork belly brooklyn microdosing cardigan vinyl, migas banh mi tumblr ramps vice plaid. "
+  },
+  {
+    "submission_timestamp": "2016-03-29",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Shoreditch keytar roof party, intelligentsia single-origin coffee pork belly migas locavore craft beer 90's. Franzen williamsburg listicle chia sustainable, cray flannel fashion axe trust fund ramps. Kickstarter disrupt synth, narwhal irony authentic paleo intelligentsia drinking vinegar asymmetrical yr keytar lumbersexual gluten-free cornhole."
+  },
+  {
+    "submission_timestamp": "2016-04-12",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "Jane Doe",
+    "customer_email": "jane@doe.com",
+    "employee_name": "Fred Bloggs",
+    "description": "Ethical tilde put a bird on it hoodie, marfa cornhole narwhal etsy pickled schlitz roof party banh mi. Beard cred actually, +1 fanny pack intelligentsia polaroid health goth green juice bushwick pitchfork everyday carry knausgaard bespoke tilde. "
+  },
+  {
+    "submission_timestamp": "2016-04-13",
+    "closed_timestamp": "2016-06-03",
+    "status": "closed",
+    "customer_name": "John Appleseed",
+    "customer_email": "john@appleseed.com",
+    "employee_name": "Jane Public",
+    "description": "Ennui post-ironic organic, leggings tote bag pork belly swag. Chartreuse 90's schlitz readymade meggings, selfies asymmetrical tousled typewriter portland hoodie gluten-free fashion axe skateboard. Keytar kinfolk yr everyday carry."
+  },
+  {
+    "submission_timestamp": "2016-04-14",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "Ire Aderinokun",
+    "customer_email": "ire@ireaderinokun.com",
+    "employee_name": "Jane Public",
+    "description": "Bicycle rights keytar cred raw denim. Flannel tumblr selvage, chillwave messenger bag taxidermy banjo scenester truffaut pork belly bicycle rights. Cred chia meditation chartreuse, bicycle rights viral pop-up ethical before they sold out fashion axe."
+  },
+  {
+    "submission_timestamp": "2016-05-02",
+    "closed_timestamp": "2016-06-03",
+    "status": "closed",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "employee_name": "Jane Public",
+    "description": "Farm-to-table salvia austin 8-bit. Kogi pabst franzen selvage, roof party salvia biodiesel beard before they sold out meh. Paleo bicycle rights affogato tilde four dollar toast listicle. Poutine tacos vinyl williamsburg flexitarian bitters, trust fund readymade flannel single-origin coffee VHS banjo vice ennui."
+  },
+  {
+    "submission_timestamp": "2016-05-29",
+    "closed_timestamp": "2016-07-17",
+    "status": "closed",
+    "customer_name": "Jane Doe",
+    "customer_email": "jane@doe.com",
+    "employee_name": "John Smith",
+    "description": "Banjo stumptown paleo tousled, franzen PBR&B meh sartorial vinyl yr cray. Keytar venmo pug, austin locavore brooklyn cred keffiyeh next level. Pinterest selfies keffiyeh, cornhole chambray occupy kombucha shabby chic fixie hammock chartreuse tofu mumblecore man braid."
+  },
+  {
+    "submission_timestamp": "2016-06-03",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "John Appleseed",
+    "customer_email": "john@appleseed.com",
+    "employee_name": "Jane Public",
+    "description": "Mustache portland migas authentic, lumbersexual tacos salvia organic squid wolf twee irony. Distillery pickled chartreuse keffiyeh chambray selvage. Single-origin coffee hoodie four loko umami godard distillery sriracha post-ironic readymade, synth waistcoat tote bag."
+  },
+  {
+    "submission_timestamp": "2016-06-11",
+    "closed_timestamp": "2016-07-17",
+    "status": "closed",
+    "customer_name": "Ire Aderinokun",
+    "customer_email": "ire@ireaderinokun.com",
+    "employee_name": "Jane Public",
+    "description": "Gastropub trust fund listicle XOXO viral. Thundercats godard sriracha, chicharrones yuccie 8-bit disrupt beard banh mi aesthetic four dollar toast vegan. Mlkshk everyday carry freegan taxidermy, brooklyn keffiyeh disrupt semiotics typewriter mixtape neutra XOXO food truck franzen."
+  },
+  {
+    "submission_timestamp": "2016-06-19",
+    "closed_timestamp": "2016-06-29",
+    "status": "closed",
+    "customer_name": "John Doe",
+    "customer_email": "john@doe.com",
+    "employee_name": "John Smith",
+    "description": "Salvia hella ethical master cleanse. Paleo +1 letterpress selfies sriracha, ennui kale chips wolf gochujang cold-pressed occupy art party iPhone tacos. Fingerstache crucifix kitsch truffaut everyday carry asymmetrical."
+  },
+  {
+    "submission_timestamp": "2016-06-21",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "Jane Doe",
+    "customer_email": "jane@doe.com",
+    "employee_name": "John Smith",
+    "description": "Stumptown post-ironic cliche sriracha 8-bit, chambray cold-pressed flexitarian fashion axe poutine knausgaard williamsburg. Celiac craft beer synth fashion axe. Gochujang distillery put a bird on it, tousled pug cred shabby chic yuccie truffaut cliche marfa offal small batch banjo asymmetrical."
+  },
+  {
+    "submission_timestamp": "2016-06-29",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "John Appleseed",
+    "customer_email": "john@appleseed.com",
+    "employee_name": "Jane Public",
+    "description": "Fashion axe wolf ugh, YOLO gluten-free banh mi swag twee photo booth dreamcatcher ramps disrupt kickstarter. XOXO cray vegan yr, put a bird on it distillery yuccie. Street art DIY ramps you probably haven't heard of them asymmetrical. Cold-pressed kombucha health goth tote bag, street art bespoke cray pork belly gentrify you probably haven't heard of them offal irony small batch."
+  },
+  {
+    "submission_timestamp": "2016-07-17",
+    "closed_timestamp": "",
+    "status": "open",
+    "customer_name": "Ire Aderinokun",
+    "customer_email": "ire@ireaderinokun.com",
+    "employee_name": "John Smith",
+    "description": "Wayfarers schlitz seitan lo-fi fanny pack. Quinoa pork belly echo park, meh drinking vinegar keffiyeh organic lo-fi lumbersexual. Butcher taxidermy small batch schlitz aesthetic fixie synth. Four dollar toast XOXO shabby chic, gastropub wolf truffaut man braid stumptown selvage."
+  }
+]

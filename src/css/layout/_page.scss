@@ -76,6 +76,15 @@ $v-padd-mobile: 30px;
 .col-2 {
 	width: 48%;
 }
+
+.col-4-1 {
+	width: 24%
+}
+
+.col-4-3 {
+	width: 74%;
+}
+
 .page-section {
 	background: #fff;
 	border-radius: 5px;
@@ -132,5 +141,86 @@ table {
 }
 
 
+
+
+/* Issues */
+
+.open-issues {
+	.open {
+		font-size: 10rem;
+	    line-height: 9rem;
+	    font-weight: 400;
+	    color: $danger-dark;
+	}
+	.total {
+		font-size: 2rem;
+	}
+}
+
+
+
+
+
+/* Data Dashboard */
+
+.issues-table {
+	thead tr {
+		border-left: 5px solid $theme;
+	}
+	tr.closed {
+		border-left: 5px solid $success-dark;
+	}
+	tr.open {
+		border-left: 5px solid $danger-dark;
+
+		td.closed-timestamp {
+			font-weight: 600;
+		}
+	}
+
+	tr {
+		font-size: 1.4rem;
+	}
+
+	@media screen and (max-width: 900px) {
+		th.description,
+		td.description {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 500px) {
+		th.submission-timestamp,
+		td.submission-timestamp {
+			display: none;
+		}
+	}
+}
+
+.filter-table-form {
+	margin-bottom: 30px;
+	display: block;
+	width: 100%;
+
+	label {
+		width: 24%;
+
+		@media screen and (max-width: 900px) {
+			width: 49%;
+		}
+	}
+
+	fieldset {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	.fieldset-container {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: space-between;
+	}
+}
 
 

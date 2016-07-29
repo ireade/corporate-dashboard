@@ -1,0 +1,50 @@
+[
+  {
+    "week": 1,
+    "customers": 12900
+  },
+  {
+    "week": 2,
+    "customers": 15368
+  },
+  {
+    "week": 3,
+    "customers": 17836
+  },
+  {
+    "week": 4,
+    "customers": 38205
+  },
+  {
+    "week": 5,
+    "customers": 40673
+  },
+  {
+    "week": 6,
+    "customers": 43101
+  },
+  {
+    "week": 7,
+    "customers": 20200
+  },
+  {
+    "week": 8,
+    "customers": 34880
+  },
+  {
+    "week": 9,
+    "customers": 19448
+  },
+  {
+    "week": 10,
+    "customers": 24916
+  },
+  {
+    "week": 11,
+    "customers": 17384
+  },
+  {
+    "week": 12,
+    "customers": 29855
+  }
+]

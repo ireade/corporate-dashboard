@@ -23,6 +23,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			resolve: {
 				Customers: function(CompanyDataService) {
 					return CompanyDataService.getCustomers();
+				},
+				Issues: function(CompanyDataService) {
+					return CompanyDataService.getIssues();
 				}
 			}
 		})
@@ -31,6 +34,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/data.html',
 			controller: 'DataCtrl as dashboard',
 			resolve: {
+				Issues: function(CompanyDataService) {
+					return CompanyDataService.getIssues();
+				}
 			}
 		})
 
