@@ -3,7 +3,7 @@
 		<button class="toggle-nav" aria-label="Toggle Navigation" ng-click="dashboard.toggleNav()">
 			<i class="fa fa-bars"></i>
 		</button>
-		Geospatial Dashboard
+		Geospatial View
 	</h2>
 	<p class="page-subtitle">Employees at company locations</p>
 </header>
@@ -20,7 +20,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="value in dashboard.EmployeesByLocation">
+					<tr ng-repeat="value in dashboard.Employees">
 						<td>{{value.location}}</td>
 						<td>{{value.employees}}</td>
 					</tr>

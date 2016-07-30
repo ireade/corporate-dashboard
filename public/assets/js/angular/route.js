@@ -1,8 +1,6 @@
 app.config(function($stateProvider, $urlRouterProvider) {
 
-
 	$urlRouterProvider.otherwise('/');
-
 
 	$stateProvider
 
@@ -11,8 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: 'views/geospatial.html',
 			controller: 'GeospatialCtrl as dashboard',
 			resolve: {
-				EmployeesByLocation: function(CompanyDataService) {
-					return CompanyDataService.getEmployeesByLocation();
+				Employees: function(CompanyDataService) {
+					return CompanyDataService.getEmployees();
 				}
 			}
 		})

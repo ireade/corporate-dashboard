@@ -1,9 +1,16 @@
-app.controller('DataCtrl', ['Issues', function(Issues) {
-
+app.controller('DataCtrl', ['Issues', 'CompanyDataService', function(Issues, CompanyDataService) {
 
 	var vm = this;
 
 	this.issues = Issues;
+
+	/* Check data periodically and update */
+	setInterval(function() {
+		CompanyDataService.getIssues().then(function(issues) {
+			vm.issues = issues;
+			$scope.$apply;
+		})
+	}, 15000);
 	
 
 

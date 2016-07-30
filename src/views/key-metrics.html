@@ -3,7 +3,7 @@
 		<button class="toggle-nav" aria-label="Toggle Navigation" ng-click="dashboard.toggleNav()">
 			<i class="fa fa-bars"></i>
 		</button>
-		Key Metrics Dashboard
+		Key Metrics View
 	</h2>
 	<p class="page-subtitle">Key company metrics</p>
 </header>
@@ -12,7 +12,7 @@
 	<section class="page-section col-1">
 		<h3 class="section-title">Customers (Last 12 weeks)</h3>
 		<div class="section-body">
-			<canvas class="chart" id="customers" width="200" height="200"></canvas>
+			<canvas class="chart" id="customers" width="200" height="100"></canvas>
 		</div>
 	</section>
 
@@ -21,7 +21,8 @@
 		<div class="section-body">
 			<p class="open-issues">
 				<span class="open">{{dashboard.openIssues}}</span>
-				<span class="total">/ {{dashboard.totalIssues}}</span>
+				<span class="total">/ {{dashboard.totalIssues}}</span><br>
+				Issues are still open
 			</p>
 		</div>
 	</section>
@@ -29,9 +30,9 @@
 	
 
 	<section class="page-section col-4-3">
-		<h3 class="section-title">Issues (Last 12 weeks)</h3>
+		<h3 class="section-title">Issues (Last 7 months)</h3>
 		<div class="section-body">
-			<canvas class="chart" id="issues" width="200" height="200"></canvas>
+			<canvas class="chart" id="issues" width="200" height="100"></canvas>
 		</div>
 	</section>
 </div>

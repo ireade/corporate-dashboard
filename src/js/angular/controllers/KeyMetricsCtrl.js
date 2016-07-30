@@ -1,7 +1,20 @@
-app.controller('KeyMetricsCtrl', ['Customers', 'Issues', function(Customers, Issues) {
+app.controller('KeyMetricsCtrl', ['Customers', 'Issues', 'CompanyDataService', function(Customers, Issues, CompanyDataService) {
 
+	var vm = this;
 
+	this.issues = Issues;
+	this.customers = Customers;
 
+	setInterval(function() {
+		CompanyDataService.getIssues().then(function(issues) {
+			vm.issues = issues;
+			$scope.$apply;
+		})
+		CompanyDataService.getCustomers().then(function(customers) {
+			vm.customers = customers;
+			$scope.$apply;
+		})
+	}, 15000);
 
 
 	/* Customers by Week Chart */
@@ -9,9 +22,9 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', function(Customers, Iss
 	var weeks = [];
 	var numberOfCustomers = [];
 
-	angular.forEach(Customers, function(value) {
-		weeks.push(value.week);
-		numberOfCustomers.push(value.customers);
+	angular.forEach(this.customers, function(value) {
+		weeks.push(value.week_of_the_year);
+		numberOfCustomers.push(value.number_of_customers);
 	})
 
 	var customersChartData = {
@@ -28,11 +41,6 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', function(Customers, Iss
 		data: customersChartData,
 	    type: 'line',
 	    options: {
-	        elements: {
-	            arc: {
-	                borderColor: "#000000"
-	            }
-	        },
 	        legend: {
 	        	position: 'bottom'
 	        }
@@ -43,20 +51,14 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', function(Customers, Iss
 
 	/* Issues Chart */
 
-	console.log(Issues);
-
 	var totalIssues = 0;
 	var openIssues = 0;
 	var closedIssues = 0;
 
-
-
-
 	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+	var numberOfIssues = [0, 0, 0, 0, 0, 0, 0]
 
-	var stuff = [0, 0, 0, 0, 0, 0, 0]
-
-	angular.forEach(Issues, function(value) {
+	angular.forEach(this.issues, function(value) {
 		totalIssues ++;
 		switch(value.status) {
 			case 'closed':
@@ -67,36 +69,21 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', function(Customers, Iss
 				break;
 		}
 
-
 		var month = parseInt(value.submission_timestamp.split('-')[1]) - 1;
-
-		console.log(month);
-
-		stuff[month]++;
-
+		numberOfIssues[month]++;
 	})
-
 
 	this.openIssues = openIssues;
 	this.totalIssues = totalIssues;
 
-	console.log(stuff);
-
-
-
-	
-
-	
-
 	var issuesChartData = {
 		datasets: [{
-	        data: stuff,
+	        data: numberOfIssues,
 	        label: 'Issues'
 	    }],
 	    labels: months
 	};
 	var issuesChartCtx = $("#issues");
-
 	var issuesChart = new Chart(issuesChartCtx, {
 		data: issuesChartData,
 	    type: 'bar',
