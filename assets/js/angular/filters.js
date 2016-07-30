@@ -1,14 +1,3 @@
-
-
-app.filter('nameForURL', function() {
-	return function(string) {
-		var s = string.replace(/ /g, '-');
-		return s;
-	};
-});
-
-
-
 app.filter('moment', function() {
 	return function(string) {
 

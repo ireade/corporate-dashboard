@@ -1,54 +1,11 @@
-app.factory('CompanyDataService', ['$http', '$q', function($http, $q) {
+app.factory('CompanyDataService', ['$http', '$q', 'CSVToJSON', function($http, $q, CSVToJSON) {
 
+	var DATA_BASE_URL = 'https://raw.githubusercontent.com/ireade/corportate-dashboard-data/master/';
 
-
-	function convertCSVtoJSON(string, columns) {
-
-		var response = [];
-
-		var keys = [];
-
-		var splitString = string.split(',');
-
-		for (var i = 0; i < columns; i++) {
-			var foo = splitString.shift();
-
-			foo = foo.toLowerCase().replace(/ /g, '_');
-
-			foo = foo.split('↵')[0];
-
-			keys.push(foo);
-		}
-
-		console.log(keys);
-
-
-		// for (var i = 0; i < splitString.length, i++) {
-
-		// 	var foo = splitString[i];
-
-			
-
-		// 	for (var j = 0; j < keys.length; j++) {
-
-		// 	}
-		// }
-
-
-
-
-	}
-
-
-
-
-
-	// 
 	return {
-
-		getEmployeesByLocation: function() {
+		getEmployees: function() {
 			return $q(function(resolve, reject) {
-				$http.get('/tempData/employeesByLocation.json')
+				$http.get(DATA_BASE_URL+'employees.json')
 				.then(function(response) {
 					resolve(response.data);
 				})
@@ -57,23 +14,22 @@ app.factory('CompanyDataService', ['$http', '$q', function($http, $q) {
 				})
 			});
 		},
-
 		getCustomers: function() {
 			return $q(function(resolve, reject) {
-				$http.get('/tempData/customersByWeek.json')
+				$http.get(DATA_BASE_URL+'customers.csv')
 				.then(function(response) {
-					// convertCSVtoJSON(response.data, 2)
-					resolve(response.data);
+					var json = CSVToJSON(response.data, 2);
+					resolve(json);
 				})
 				.catch(function(err) {
 					console.log(err);
 				})
+				
 			});
 		},
-
 		getIssues: function() {
 			return $q(function(resolve, reject) {
-				$http.get('/tempData/issues.json')
+				$http.get(DATA_BASE_URL+'issues.json')
 				.then(function(response) {
 					resolve(response.data);
 				})
@@ -82,9 +38,5 @@ app.factory('CompanyDataService', ['$http', '$q', function($http, $q) {
 				})
 			});
 		}
-
-
-
 	};
-
 }]);

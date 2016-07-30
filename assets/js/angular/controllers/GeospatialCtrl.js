@@ -1,14 +1,25 @@
-app.controller('GeospatialCtrl', ['UIFactory', 'EmployeesByLocation', function(UI, EmployeesByLocation) {
+app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService', '$scope', function(UI, Employees, CompanyDataService, $scope) {
 
 	this.toggleNav = UI.toggleNav;
-	this.EmployeesByLocation = EmployeesByLocation;
+	this.Employees = Employees;
+	var vm = this;
+
+	/* Check data periodically and update */
+	setInterval(function() {
+		CompanyDataService.getEmployees().then(function(employees) {
+			vm.Employees = employees;
+			$scope.$apply;
+		})
+	}, 15000);
+
+	
 
 	/* Setup Data for chart */
 
 	var locations = [];
 	var employees = [];
 
-	angular.forEach(EmployeesByLocation, function(value) {
+	angular.forEach(Employees, function(value) {
 		locations.push(value.location);
 		employees.push(value.employees);
 	})
@@ -29,11 +40,6 @@ app.controller('GeospatialCtrl', ['UIFactory', 'EmployeesByLocation', function(U
 		data: chartData,
 	    type: 'polarArea',
 	    options: {
-	        elements: {
-	            arc: {
-	                borderColor: "#000000"
-	            }
-	        },
 	        legend: {
 	        	position: 'bottom'
 	        }
