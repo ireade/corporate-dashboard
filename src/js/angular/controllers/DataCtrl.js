@@ -1,8 +1,9 @@
-app.controller('DataCtrl', ['Issues', 'CompanyDataService', function(Issues, CompanyDataService) {
+app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope', function(UI, Issues, CompanyDataService, $scope) {
 
+	/* Setup key variables */
 	var vm = this;
-
 	this.issues = Issues;
+	this.toggleNav = UI.toggleNav;
 
 	/* Check data periodically and update */
 	setInterval(function() {
@@ -14,7 +15,14 @@ app.controller('DataCtrl', ['Issues', 'CompanyDataService', function(Issues, Com
 	
 
 
+	
+	/* ********************************
 
+	    Setup options for filtering
+
+	******************************** */
+
+	/* Get array of employees and customers to filter */
 	var employeeNames = [];
 	var customerNames = [];
 
@@ -26,15 +34,6 @@ app.controller('DataCtrl', ['Issues', 'CompanyDataService', function(Issues, Com
 			customerNames.push(value.customer_name);
 		}
 	})
-
-
-
-
-	/* ********************************
-
-	    Setup options for filtering
-
-	******************************** */
 
 	this.issuesFilter = {
 		status: '',

@@ -43,17 +43,10 @@ gulp.task('css', function() {
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglifyjs');
 
-
-
-var jsFiles = 'src/js/main/**/*.js';
 var angularFiles = 'src/js/angular/**/*.js';
 var libFiles = 'src/js/lib/**/*.js';
 
 gulp.task('js', function() {
-    gulp.src(jsFiles)
-        .pipe(concat('main.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('public/assets/js/main'));
     gulp.src(libFiles)
         .pipe(concat('lib.js'))
         .pipe(uglify())
