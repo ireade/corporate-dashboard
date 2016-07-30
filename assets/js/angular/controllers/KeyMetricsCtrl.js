@@ -1,10 +1,12 @@
-app.controller('KeyMetricsCtrl', ['Customers', 'Issues', 'CompanyDataService', function(Customers, Issues, CompanyDataService) {
+app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDataService', '$scope', function(UI, Customers, Issues, CompanyDataService, $scope) {
 
+	/* Setup key variables */
 	var vm = this;
-
 	this.issues = Issues;
 	this.customers = Customers;
+	this.toggleNav = UI.toggleNav;
 
+	/* Check data periodically and update */
 	setInterval(function() {
 		CompanyDataService.getIssues().then(function(issues) {
 			vm.issues = issues;
@@ -17,7 +19,11 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', 'CompanyDataService', f
 	}, 15000);
 
 
-	/* Customers by Week Chart */
+	/* ********************************
+
+	    Chart - Customers by Week
+
+	******************************** */
 
 	var weeks = [];
 	var numberOfCustomers = [];
@@ -48,8 +54,11 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', 'CompanyDataService', f
 	});
 
 
+	/* ********************************
 
-	/* Issues Chart */
+	    Chart - Issues by Month
+
+	******************************** */
 
 	var totalIssues = 0;
 	var openIssues = 0;
@@ -68,7 +77,6 @@ app.controller('KeyMetricsCtrl', ['Customers', 'Issues', 'CompanyDataService', f
 				openIssues++;
 				break;
 		}
-
 		var month = parseInt(value.submission_timestamp.split('-')[1]) - 1;
 		numberOfIssues[month]++;
 	})
