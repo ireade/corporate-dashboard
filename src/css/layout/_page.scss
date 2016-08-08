@@ -183,19 +183,32 @@ table {
 		font-size: 1.4rem;
 	}
 
+
+
+	.col-label {
+		display: none;
+	}
+
 	@media screen and (max-width: 900px) {
-		th.description,
-		td.description {
+
+		thead {
 			display: none;
+		}
+	
+		.col-label {
+			display: block;
+			font-size: 1.4rem;
+			text-decoration: underline;
+			margin-bottom: 5px;
+		}
+
+		tr td {
+			display: block;
+			width: 100%;
+			text-align: center;
 		}
 	}
 
-	@media screen and (max-width: 500px) {
-		th.submission-timestamp,
-		td.submission-timestamp {
-			display: none;
-		}
-	}
 }
 
 .filter-table-form {

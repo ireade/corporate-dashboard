@@ -42,6 +42,7 @@ gulp.task('css', function() {
 
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglifyjs');
+var annotate = require('gulp-ng-annotate');
 
 var angularFiles = 'src/js/angular/**/*.js';
 var libFiles = 'src/js/lib/**/*.js';
@@ -51,17 +52,11 @@ gulp.task('js', function() {
         .pipe(concat('lib.js'))
         .pipe(uglify())
         .pipe(gulp.dest('public/assets/js/lib'));
-
-    gulp.src('src/js/angular/*.js')
+    gulp.src(angularFiles)
+        .pipe(annotate())
+        .pipe(concat('angular.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('public/assets/js/angular'));
-    gulp.src('src/js/angular/controllers/*.js')
-        .pipe(gulp.dest('public/assets/js/angular/controllers'));
-    gulp.src('src/js/angular/factories/*.js')
-        .pipe(gulp.dest('public/assets/js/angular/factories'));
-    gulp.src('src/js/angular/services/*.js')
-        .pipe(gulp.dest('public/assets/js/angular/services'));
-    gulp.src('src/js/angular/directives/*.js')
-        .pipe(gulp.dest('public/assets/js/angular/directives'));
 });
 
 
@@ -122,7 +117,6 @@ gulp.task('connectWithBrowserSync', function() {
 
 gulp.task('watch', function() {
     gulp.watch(sassFiles,['css']).on('change', browserSync.reload); 
-    gulp.watch(jsFiles,['js']).on('change', browserSync.reload); 
     gulp.watch(angularFiles,['js']).on('change', browserSync.reload); 
     gulp.watch(libFiles,['js']).on('change', browserSync.reload); 
     gulp.watch(htmlFiles, ['html']).on('change', browserSync.reload); 

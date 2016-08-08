@@ -1,0 +1,44 @@
+
+$fabPosition: 30px;
+
+.toast-container {
+	position: fixed;
+	bottom: $fabPosition;
+	left: $fabPosition;
+	width: calc(100% - 150px);
+
+	z-index: 10;
+
+	transition: transform 1s;
+}
+
+.toast-container:not(.open) {
+
+	transform: translateX(-150%);
+
+}
+
+.toast-container.open {
+	transform: translateX(0%);
+}
+
+.toast {
+	background: #fff;
+	padding: 10px;
+
+	border-left-style: solid;
+	border-left-width: 5px;
+	border-radius: 4px;
+}
+
+.toast.success {
+	border-left-color: green;
+}
+
+.toast.danger {
+	border-left-color: red;
+}
+
+.toast.warning {
+	border-left-color: orange;
+}

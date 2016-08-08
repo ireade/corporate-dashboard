@@ -14,7 +14,8 @@
 
 	// Modules
 	@import 
-		'modules/formhack'
+		'modules/formhack',
+		'modules/toast'
 	;
 
 	// Layout
@@ -23,4 +24,7 @@
 		'layout/page'
 	;
 
-	
+
+
+
+.angular-google-map-container { height: 400px; }

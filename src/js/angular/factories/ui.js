@@ -39,6 +39,29 @@ app.factory('UIFactory', function() {
 
 		},
 
+		toast: function(type, message) {
+
+			console.log("toastubg")
+
+			var toastContainerEl = document.querySelector('.toast-container');
+		    var toastEl = document.querySelector('.toast');
+
+
+		    toastEl.classList.remove('success', 'warning', 'danger'); 
+		    toastEl.classList.add(type);
+		    toastContainerEl.classList.add('open');   
+		    toastEl.innerHTML = '\
+		        <p>'+message+'</p>\
+		        <button type="button" aria-label="Close Message" class="close-toast btn-bare"> Close </button>\
+		    ';
+
+
+		    document.querySelector('.close-toast').addEventListener('click', function() {
+		        toastContainerEl.classList.remove('open');   
+		    });
+
+		}
+
 
 
 	};

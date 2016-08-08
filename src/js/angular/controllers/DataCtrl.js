@@ -7,9 +7,11 @@ app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope
 
 	/* Check data periodically and update */
 	setInterval(function() {
-		CompanyDataService.getIssues().then(function(issues) {
-			vm.issues = issues;
-			$scope.$apply;
+		CompanyDataService.getIssues().then(function(issues, isNewData) {
+			if (isNewData) {
+				vm.issues = issues;
+				$scope.$apply;
+			}
 		})
 	}, 15000);
 	
@@ -61,9 +63,6 @@ app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope
 			value: 'closed'
 		}
 	];
-	$('#filterByStatus').on('change', function(e) {
-		filterResults(e.currentTarget.value, 'status');		
-	})
 
 
 
@@ -80,9 +79,6 @@ app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope
 			value: value
 		})
 	})
-	$('#filterByEmployee').on('change', function(e) {
-		filterResults(e.currentTarget.value, 'employee_name');		
-	})
 
 
 	// FILTER BY CUSTOMER NAME
@@ -97,9 +93,6 @@ app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope
 			name: value,
 			value: value
 		})
-	})
-	$('#filterByCustomer').on('change', function(e) {
-		filterResults(e.currentTarget.value, 'customer_name');		
 	})
 
 

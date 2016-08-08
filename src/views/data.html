@@ -69,19 +69,38 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="issue in dashboard.issues | filter: dashboard.issuesFilter | orderBy: dashboard.issuesSortOrder.value" 
+					<tr ng-repeat="issue in dashboard.issues | 
+								   filter: { 
+								   		status: dashabord.filterByStatus.value, 
+								   		employee_name: dashabord.filterByEmployee.value, 
+								   		customer_name: dashabord.filterByCustomer.value
+								   } | 
+								   orderBy: dashboard.issuesSortOrder.value" 
 						ng-class="({'open': issue.status == 'open', 'closed': issue.status == 'closed'})">
-						<td class="submission-timestamp">{{issue.submission_timestamp | moment}}</td>
+
+						<td class="submission-timestamp">
+							<span class="col-label">Submitted</span>
+							{{issue.submission_timestamp | moment}}
+						</td>
 						<td class="closed-timestamp">
+							<span class="col-label" style="font-weight: 300;">Closed</span>
 							<span ng-if="issue.status == 'open'">Still Open</span>
 							<span ng-if="issue.status == 'closed'">{{issue.closed_timestamp | moment}}</span>
 						</td>
-						<td class="employee">{{issue.employee_name}}</td>
+						<td class="employee">
+							<span class="col-label">Employee</span>
+							{{issue.employee_name}}
+						</td>
 						<td class="customer">
+							<span class="col-label">Customer</span>
 							{{issue.customer_name}} <br> 
 							<a ng-href="mailto:{{issue.customer_email}}">{{issue.customer_email}}</a>
 						</td>
-						<td class="description">{{issue.description}}</td>
+						<td class="description">
+							<span class="col-label">Description</span>
+							{{issue.description}}
+						</td>
+
 					</tr>
 				</tbody>
 			</table>
