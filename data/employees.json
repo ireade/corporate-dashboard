@@ -1,0 +1,42 @@
+[
+	{
+		"location": "Lagos",
+		"employees": 250
+	},
+	{
+		"location": "Abuja",
+		"employees": 189
+	},
+	{
+		"location": "Port Harcourt",
+		"employees": 101
+	},
+	{
+		"location": "Ogun",
+		"employees": 90
+	},
+	{
+		"location": "Osun",
+		"employees": 85
+	},
+	{
+		"location": "Edo",
+		"employees": 60
+	},
+	{
+		"location": "Kaduna",
+		"employees": 97
+	},
+	{
+		"location": "Oyo",
+		"employees": 55
+	},
+	{
+		"location": "Plateau",
+		"employees": 109
+	},
+	{
+		"location": "Sokoto",
+		"employees": 121
+	}
+]
