@@ -1,35 +1,11 @@
-app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService', '$scope', 'uiGmapGoogleMapApi', 'uiGmapGmapUtil', '$interval', '$timeout', function(UI, Employees, CompanyDataService, $scope, uiGmapGoogleMapApi, uiGmapGmapUtil, $interval, $timeout) {
+app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService', '$scope', function(UI, Employees, CompanyDataService, $scope) {
 
 	/* Setup key variables */
 	this.employees = Employees;
 	var vm = this;
 	this.toggleNav = UI.toggleNav;
 
-	////
 
-
-
-	this.map = {
-        center: {
-            latitude: 9.155746,
-            longitude: 7.727321
-        },
-        zoom: 5,
-        control: {}
-    };
-	
-	uiGmapGoogleMapApi.then(function(maps) {
-        console.log('Google Maps loaded');
-
-
-        $timeout(function () {
-			var map = vm.map.control.getGMap();
-			var maps = google.maps;
-
-
-		}, 1000);
-
-    });
 
 
 
@@ -52,6 +28,7 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 		
 		var chartData = {
 			datasets: [{
+				label: 'Employees by Location',
 		        data: employees,
 		        backgroundColor: locationColours
 		    }],
@@ -62,7 +39,7 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 
 		var geospatialChart = new Chart(ctx, {
 			data: chartData,
-		    type: 'polarArea',
+		    type: 'bar',
 		    options: {
 		        legend: {
 		        	position: 'bottom'
@@ -76,32 +53,23 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 
 	};
 
-	//buildChart();
+	buildChart();
 
 
 
 
 	/* Check data periodically and update */
-	// setInterval(function() {
-	// 	CompanyDataService.getEmployees().then(function(employees, isNewData) {
-	// 		if (isNewData) {
-	// 			console.log("isNewData")
-	// 			vm.employees = employees;
-	// 			buildChart();
-	// 			$scope.$apply;
-	// 		} else {
-	// 			console.log("is not new data")
-	// 		}
-	// 	})
-	// }, 5000);
+	setInterval(function() {
+		CompanyDataService.getEmployees().then(function(employees, isNewData) {
+			if (isNewData) {
+				vm.employees = employees;
+				buildChart();
+				$scope.$apply;
+			} 
+		})
+	}, 5000);
 
-	var map;
-	function initMap() {
-		map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: -34.397, lng: 150.644},
-			zoom: 8
-		});
-	}
+
 
 	
 
