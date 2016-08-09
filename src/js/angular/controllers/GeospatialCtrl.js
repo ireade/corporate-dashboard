@@ -15,6 +15,15 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 
 	******************************** */
 
+	this.geospatialChart = {
+		data: chartData,
+		options: {
+	        legend: {
+	        	position: 'bottom'
+	        }
+		}
+	}
+
 	function buildChart() {
 
 		var locations = [];
@@ -48,12 +57,12 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 		    }
 		});
 
-		ctx.css('width', '100%');
-		ctx.css('height', 'auto');
+		// ctx.css('width', '100%');
+		// ctx.css('height', 'auto');
 
 	};
 
-	buildChart();
+	//buildChart();
 
 
 

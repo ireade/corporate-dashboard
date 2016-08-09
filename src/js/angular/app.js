@@ -1,1 +1,1 @@
-var app = angular.module('CorporateDashboardApp', ['ui.router', 'ngAnimate', 'uiGmapgoogle-maps']);
+var app = angular.module('CorporateDashboardApp', ['ui.router', 'ngAnimate']);

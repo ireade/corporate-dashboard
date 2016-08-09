@@ -33,7 +33,13 @@
 	<section class="page-section col-2">
 		<h3 class="section-title">Employees by Location</h3>
 		<div class="section-body">
-			<canvas class="chart" id="geospatialChart" width="400" height="400"></canvas>
+			<canvas id="bar" class="chart chart-bar"
+			  		chart-data="dashboard.geospatialChart.data" 
+			  		chart-labels="dashboard.geospatialChart.labels" 
+			  		chart-series="dashboard.geospatialChart.series"
+			  		chart-options="dashboard.geospatialChart.options"> 
+			</canvas>
+			<!-- <canvas class="chart" id="geospatialChart" width="400" height="400"></canvas> -->
 		</div>
 	</section>
 </div>
