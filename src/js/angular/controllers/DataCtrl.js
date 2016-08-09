@@ -1,19 +1,25 @@
-app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope', function(UI, Issues, CompanyDataService, $scope) {
+app.controller('DataCtrl', ['UIFactory', 'Issues', 'CompanyDataService', '$scope', '$interval', function(UI, Issues, CompanyDataService, $scope, $interval) {
 
 	/* Setup key variables */
 	var vm = this;
-	this.issues = Issues;
+	this.issues = Issues.data;
 	this.toggleNav = UI.toggleNav;
 
+
+
 	/* Check data periodically and update */
-	setInterval(function() {
-		CompanyDataService.getIssues().then(function(issues, isNewData) {
-			if (isNewData) {
-				vm.issues = issues;
+	function checkForUpdates() {
+		CompanyDataService.getIssues().then(function(issues) {
+			if (issues.isNewData) {
+				vm.issues = issues.data;
 				$scope.$apply;
 			}
-		})
-	}, 15000);
+		});
+	}
+	var pollingInterval = $interval(checkForUpdates, 10000);
+	$scope.$on('$destroy', function() {
+		$interval.cancel(pollingInterval);
+    });
 	
 
 

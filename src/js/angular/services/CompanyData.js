@@ -21,7 +21,11 @@ app.factory('CompanyDataService', ['$http', '$q', 'CSVToJSON', 'UIFactory', func
 				.then(function(response) {
 					var isNewData = !isEqual(response.data, employees);
 					employees = response.data;
-					resolve(employees, isNewData);
+					//console.log("employees.json isNewData = " + isNewData);
+					resolve({
+						data: response.data,
+						isNewData: isNewData
+					});
 				})
 				.catch(function(err) {
 					UI.toast('danger', 'Unable to get the company employees')
@@ -36,7 +40,11 @@ app.factory('CompanyDataService', ['$http', '$q', 'CSVToJSON', 'UIFactory', func
 					var json = CSVToJSON(response.data, 2);
 					var isNewData = !isEqual(json, customers);
 					customers = json;
-					resolve(customers, isNewData);
+					//console.log("customers.csv isNewData = " + isNewData);
+					resolve({
+						data: json,
+						isNewData: isNewData
+					});
 				})
 				.catch(function(err) {
 					UI.toast('danger', 'Unable to get the company customers')
@@ -51,7 +59,12 @@ app.factory('CompanyDataService', ['$http', '$q', 'CSVToJSON', 'UIFactory', func
 				.then(function(response) {
 					var isNewData = !isEqual(response.data, issues);
 					issues = response.data;
-					resolve(issues, isNewData);
+					//console.log("issues.json isNewData = " + isNewData);
+					resolve({
+						data: response.data,
+						isNewData: isNewData
+					});
+
 				})
 				.catch(function(err) {
 					UI.toast('danger', 'Unable to get the company issues')

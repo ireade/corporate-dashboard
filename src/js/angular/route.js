@@ -1,10 +1,4 @@
-app.config(['$stateProvider', '$urlRouterProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
-
-
-	uiGmapGoogleMapApiProvider.configure({
-		v: '3.18',
-		key: 'AIzaSyBWbn2woYcKBa78EGto81shmbogj-9LfF0'
-    });
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise('/');
 

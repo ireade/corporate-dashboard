@@ -1,1 +1,1 @@
-var app = angular.module('CorporateDashboardApp', ['ui.router', 'ngAnimate']);
+var app = angular.module('CorporateDashboardApp', ['ui.router', 'ngAnimate', 'chart.js']);

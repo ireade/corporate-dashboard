@@ -12,7 +12,14 @@
 	<section class="page-section col-1">
 		<h3 class="section-title">Customers (Last 12 weeks)</h3>
 		<div class="section-body">
-			<canvas class="chart" id="customers" width="200" height="100"></canvas>
+
+			<canvas id="customers" class="chart chart-line" 
+					width="700" height="250"
+			  		chart-data="dashboard.customersChart.data" 
+			  		chart-labels="dashboard.customersChart.labels" 
+			  		chart-series="dashboard.customersChart.series"
+			  		chart-options="dashboard.customersChart.options"> 
+			</canvas>
 		</div>
 	</section>
 
@@ -32,7 +39,13 @@
 	<section class="page-section col-4-3">
 		<h3 class="section-title">Issues (Last 7 months)</h3>
 		<div class="section-body">
-			<canvas class="chart" id="issues" width="200" height="100"></canvas>
+			<canvas id="issues" class="chart chart-bar" 
+					width="700" height="250"
+			  		chart-data="dashboard.issuesChart.data" 
+			  		chart-labels="dashboard.issuesChart.labels" 
+			  		chart-series="dashboard.issuesChart.series"
+			  		chart-options="dashboard.issuesChart.options"> 
+			</canvas>
 		</div>
 	</section>
 </div>

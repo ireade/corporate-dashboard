@@ -1,9 +1,9 @@
-app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDataService', '$scope', function(UI, Customers, Issues, CompanyDataService, $scope) {
+app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDataService', '$scope', '$interval', '$timeout', function(UI, Customers, Issues, CompanyDataService, $scope, $interval, $timeout) {
 
 	/* Setup key variables */
 	var vm = this;
-	this.issues = Issues;
-	this.customers = Customers;
+	this.issues = Issues.data;
+	this.customers = Customers.data;
 	this.toggleNav = UI.toggleNav;
 
 
@@ -15,6 +15,8 @@ app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDa
 
 	******************************** */
 
+	var customersChartEl = $('#customers');
+
 	function buildCustomersChart() {
 
 		var weeks = [];
@@ -25,25 +27,23 @@ app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDa
 			numberOfCustomers.push(value.number_of_customers);
 		})
 
-		var customersChartData = {
-			datasets: [{
-		        data: numberOfCustomers,
-		        label: 'Customers'
-		    }],
-		    labels: weeks
-		};
-
-		var customersChartCtx = $("#customers");
-
-		var customersChart = new Chart(customersChartCtx, {
-			data: customersChartData,
-		    type: 'line',
-		    options: {
+		vm.customersChart = {
+			data: [numberOfCustomers],
+			labels: weeks,
+			series: ['Customers'],
+			options: {
 		        legend: {
 		        	position: 'bottom'
-		        }
-		    }
-		});
+		        },
+		        responsive: false
+			}
+		}
+
+		$timeout(function() {
+			customersChartEl.css('width', '100%');
+			customersChartEl.css('height', 'auto');
+		}, 500)
+
 	};
 	buildCustomersChart();
 
@@ -53,6 +53,7 @@ app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDa
 	    Chart - Issues by Month
 
 	******************************** */
+	var issuesChartEl = $('#issues');
 
 	function buildIssuesChart() {
 
@@ -80,23 +81,22 @@ app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDa
 		vm.openIssues = openIssues;
 		vm.totalIssues = totalIssues;
 
-		var issuesChartData = {
-			datasets: [{
-		        data: numberOfIssues,
-		        label: 'Issues'
-		    }],
-		    labels: months
-		};
-		var issuesChartCtx = $("#issues");
-		var issuesChart = new Chart(issuesChartCtx, {
-			data: issuesChartData,
-		    type: 'bar',
-		    options: {
+		vm.issuesChart = {
+			data: [numberOfIssues],
+			labels: months,
+			series: ['Issues'],
+			options: {
 		        legend: {
 		        	position: 'bottom'
-		        }
-		    }
-		});
+		        },
+		        responsive: false
+			}
+		}
+
+		$timeout(function() {
+			issuesChartEl.css('width', '100%');
+			issuesChartEl.css('height', 'auto');
+		}, 500)
 
 	};
 	buildIssuesChart();
@@ -107,22 +107,29 @@ app.controller('KeyMetricsCtrl', ['UIFactory', 'Customers', 'Issues', 'CompanyDa
 
 
 	/* Check data periodically and update */
-	setInterval(function() {
-		CompanyDataService.getIssues().then(function(issues, isNewData) {
-			if (isNewData) {
-				vm.issues = issues;
+	function checkForUpdates() {
+		CompanyDataService.getIssues().then(function(issues) {
+			if (issues.isNewData) {
+				vm.issues = issues.data;
 				buildIssuesChart();
 				$scope.$apply;
 			}
-		})
-		CompanyDataService.getCustomers().then(function(customers, isNewData) {
-			if (isNewData) {
-				vm.customers = customers;
+		});
+		CompanyDataService.getCustomers().then(function(customers) {
+			if (customers.isNewData) {
+				vm.customers = customers.data;
 				buildCustomersChart();
 				$scope.$apply;
 			}
-		})
-	}, 15000);
+		});
+	}
+	var pollingInterval = $interval(checkForUpdates, 10000);
+	$scope.$on('$destroy', function() {
+		$interval.cancel(pollingInterval);
+    });
+
+
+
 
 
 

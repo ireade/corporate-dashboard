@@ -1,7 +1,7 @@
-app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService', '$scope', function(UI, Employees, CompanyDataService, $scope) {
+app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService', '$scope', '$interval', '$timeout', function(UI, Employees, CompanyDataService, $scope, $interval, $timeout) {
 
 	/* Setup key variables */
-	this.employees = Employees;
+	this.employees = Employees.data;
 	var vm = this;
 	this.toggleNav = UI.toggleNav;
 
@@ -15,16 +15,12 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 
 	******************************** */
 
-	this.geospatialChart = {
-		data: chartData,
-		options: {
-	        legend: {
-	        	position: 'bottom'
-	        }
-		}
-	}
+	
 
-	function buildChart() {
+	var geospatialChartEl = $("#geospatialChart");
+	
+
+	function setGeospatialChartData() {
 
 		var locations = [];
 		var locationColours = ["#FF6384", "#4BC0C0", "#FFCE56", "#f39c12", "#36A2EB", "#8e44ad", "#1abc9c", "#34495e", "#e67e22", "#c0392b"];
@@ -35,48 +31,45 @@ app.controller('GeospatialCtrl', ['UIFactory', 'Employees', 'CompanyDataService'
 			employees.push(value.employees);
 		})
 		
-		var chartData = {
-			datasets: [{
-				label: 'Employees by Location',
-		        data: employees,
-		        backgroundColor: locationColours
-		    }],
-		    labels: locations
-		};
-
-		var ctx = $("#geospatialChart");
-
-		var geospatialChart = new Chart(ctx, {
-			data: chartData,
-		    type: 'bar',
-		    options: {
+		vm.geospatialChart = {
+			data: [employees],
+			labels: locations,
+			series: ['Employees by Location'],
+			options: {
 		        legend: {
 		        	position: 'bottom'
 		        },
 		        responsive: false
-		    }
-		});
+			}
+		}
 
-		// ctx.css('width', '100%');
-		// ctx.css('height', 'auto');
+		$timeout(function() {
+			geospatialChartEl.css('width', '100%');
+			geospatialChartEl.css('height', 'auto');
+		}, 500)
 
 	};
 
-	//buildChart();
+	setGeospatialChartData();
+
 
 
 
 
 	/* Check data periodically and update */
-	setInterval(function() {
-		CompanyDataService.getEmployees().then(function(employees, isNewData) {
-			if (isNewData) {
-				vm.employees = employees;
-				buildChart();
+	function checkForUpdates() {
+		CompanyDataService.getEmployees().then(function(employees) {
+			if (employees.isNewData) {
+				vm.employees = employees.data;
+				setGeospatialChartData();
 				$scope.$apply;
-			} 
-		})
-	}, 5000);
+			}
+		});
+	}
+	var pollingInterval = $interval(checkForUpdates, 10000);
+	$scope.$on('$destroy', function() {
+		$interval.cancel(pollingInterval);
+    });
 
 
 
